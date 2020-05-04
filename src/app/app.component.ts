@@ -8,12 +8,30 @@ import { Component } from '@angular/core';
 export class AppComponent {
   // title = 'cmail';
   private _isNewEmailFormOpen = false;
+  emailList = [];
+  email = {
+    destinatario: '',
+    assunto: '',
+    conteudo: ''
+  }
 
-  public get isNewEmailFormOpen() {
+  get isNewEmailFormOpen() {
     return this._isNewEmailFormOpen;
   }
 
-  public toggleNewEmailForm(){
+  toggleNewEmailForm(){
     this._isNewEmailFormOpen = !this.isNewEmailFormOpen
+  }
+
+  handleNewEmail(event: Event){
+    event.preventDefault(); // evita recarregar a pagina - checar
+
+    this.emailList.push(this.email);
+
+    this.email = {
+      destinatario: '',
+      assunto: '',
+      conteudo: ''
+    }
   }
 }
