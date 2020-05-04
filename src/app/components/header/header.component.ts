@@ -17,6 +17,8 @@ export class HeaderComponent{
   }
 
   toggleMenu(){
+    // por estar chamando um método getter, mão precisamos abrir/fehar os parenteses
+    // ele funciona como uma propriedade
     this._isMenuOpen = !this.isMenuOpen
   }
 }
